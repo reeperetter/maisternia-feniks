@@ -1,4 +1,4 @@
-/* Phoenix Art shipping autocomplete proxy for Cloudflare Workers.
+/* Phoenix Workshop shipping autocomplete proxy for Cloudflare Workers.
  * Store NP_API_KEY, UKRPOSHTA_BEARER and ALLOWED_ORIGIN as Worker variables/secrets.
  * Never put carrier credentials into the public website JavaScript.
  */

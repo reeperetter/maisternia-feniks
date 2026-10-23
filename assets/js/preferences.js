@@ -1,6 +1,6 @@
 (() => {
   const translations = {
-    'Фенікс Арт':'Phoenix Art','картини та історії':'paintings and stories','ФА':'PA',
+    'Майстерня Фенікс':'Phoenix Workshop','картини та історії':'paintings and stories',
     'Мистецтво ближче, ніж здається · Доставка по Україні':'Art is closer than you think · Delivery across Ukraine',
     'Каталог':'Catalog','Готові картини':'Finished paintings','На замовлення':'Custom order','Про нас':'About us','Доставка':'Delivery','Обране':'Favorites','Кошик':'Cart','Головна':'Home','Про майстерню':'About the studio',
     'картини та історії':'paintings & stories','Майстерня':'The Art Studio','Картини за номерами':'Paint by numbers','Індивідуальне замовлення':'Custom artwork','Покупцям':'For customers','Доставка та оплата':'Delivery & payment','Питання та відповіді':'FAQ','Контакти':'Contact','Мистецтво — ближче, ніж здається':'Art is closer than you think',
