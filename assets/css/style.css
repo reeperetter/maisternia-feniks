@@ -553,3 +553,148 @@ html[data-theme="dark"] .autocomplete-list { box-shadow: 0 12px 28px #0005; }
   .theme-toggle { width: 38px; min-width: 38px; }
   .menu-toggle { flex-basis: 34px; width: 34px; }
 }
+/* =========================================
+   ОПТИМІЗАЦІЯ ТА ПОКРАЩЕННЯ (Додати в кінець style.css)
+   ========================================= */
+
+/* 1. Прибрати фіксацію шапки */
+.site-header {
+  position: relative !important;
+  top: auto !important;
+}
+
+/* 2. Виразніший логотип і назва */
+.brand__logo {
+  width: 72px !important;
+  height: 72px !important;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.brand:hover .brand__logo {
+  transform: scale(1.08);
+  filter: drop-shadow(0 4px 8px rgba(142, 30, 162, 0.2));
+}
+.brand__text {
+  font-size: 26px !important;
+  font-weight: 700 !important;
+  gap: 4px !important;
+  transition: color 0.3s ease;
+}
+.brand:hover .brand__text {
+  color: #8E1EA2;
+}
+.brand__text small {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #8E1EA2 !important;
+}
+
+/* 3. Збільшені посилання в шапці */
+.site-nav {
+  font-size: 15px !important;
+  font-weight: 500;
+  gap: clamp(18px, 2.5vw, 36px) !important;
+}
+.site-nav a {
+  padding: 12px 4px;
+  position: relative;
+  transition: color 0.2s ease;
+}
+.site-nav a:hover {
+  color: #8E1EA2;
+}
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 4px;
+  right: 4px;
+  height: 2px;
+  background: #8E1EA2;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: right;
+}
+.site-nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.header-link {
+  font-size: 14px !important;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+.header-link:hover {
+  background: rgba(142, 30, 162, 0.08);
+}
+
+/* 4. Оптимізація та організація зображень */
+.product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 3/4;
+  transition: transform 0.5s ease;
+}
+.product-card__image:hover img {
+  transform: scale(1.05);
+}
+.hero__painting img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.split-promo__visual img,
+.category-tile img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
+.split-promo__visual img {
+  aspect-ratio: 4/3;
+}
+.category-tile img {
+  aspect-ratio: 16/9;
+}
+.category-tile:hover img {
+  transform: scale(1.05);
+}
+
+/* 5. Помітніший блок індивідуального замовлення */
+.split-promo--custom {
+  background: linear-gradient(135deg, #FFF5FC 0%, #F8DDF1 100%);
+  border: 2px solid #8E1EA2;
+  border-radius: 20px;
+  padding: 48px;
+  box-shadow: 0 16px 40px rgba(142, 30, 162, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+.split-promo--custom::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: rgba(142, 30, 162, 0.05);
+  border-radius: 50%;
+}
+.split-promo--custom .button--dark {
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(142, 30, 162, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.split-promo--custom .button--dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(142, 30, 162, 0.4);
+}
+.split-promo--custom h2 {
+  font-size: clamp(28px, 4vw, 36px);
+  color: #8E1EA2;
+}
