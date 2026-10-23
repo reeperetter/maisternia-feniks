@@ -6,24 +6,28 @@
   const heroTitle = document.getElementById('hero-banner-title');
   const heroDesc = document.getElementById('hero-banner-desc');
   
-  if (!heroImg) return; // Якщо це не головна сторінка, виходимо
+  if (!heroImg || !window.ART_PRODUCTS) return;
   
-  const heroImages = [
-    { src: 'assets/images/poppy-simple.jpeg', title: 'Маки на світанку', desc: 'Картина за номерами · 40 × 50 см' },
-    { src: 'assets/images/field-simple.jpeg', title: 'Лавандове поле', desc: 'Картина за номерами · 40 × 50 см' },
-    { src: 'assets/images/cat-simple.jpeg', title: 'Мрійливий кіт', desc: 'Картина за номерами · 40 × 50 см' },
-    { src: 'assets/images/stilllife-simple.jpeg', title: 'Затишний натюрморт', desc: 'Картина за номерами · 40 × 50 см' },
-    { src: 'assets/images/night-simple.jpeg', title: 'Нічне місто', desc: 'Картина за номерами · 40 × 50 см' },
-    { src: 'assets/images/flowers-simple.jpeg', title: 'Весняні квіти', desc: 'Картина за номерами · 40 × 50 см' },
-    { src: 'assets/images/abstract-simple.jpeg', title: 'Абстракція кольорів', desc: 'Картина за номерами · 40 × 50 см' },
-    { src: 'assets/images/mountain-simple.jpeg', title: 'Гірський пейзаж', desc: 'Картина за номерами · 40 × 50 см' },
-    { src: 'assets/images/sea-simple.jpeg', title: 'Морський бриз', desc: 'Картина за номерами · 40 × 50 см' },
-    { src: 'assets/images/terrace-simple.jpeg', title: 'Вечірня тераса', desc: 'Картина за номерами · 40 × 50 см' }
-  ];
+  // Збираємо унікальні пари: simple-зображення + назва з каталогу
+  const uniqueImages = new Map();
+  window.ART_PRODUCTS.forEach(p => {
+    // assets/images/poppy.jpeg → assets/images/poppy-simple.jpeg
+    const simpleSrc = p.image.replace(/\.(\w+)$/, '-simple.$1');
+    if (!uniqueImages.has(simpleSrc)) {
+      uniqueImages.set(simpleSrc, {
+        src: simpleSrc,
+        title: p.name,
+        desc: `Картина за номерами · ${p.size || '40 × 50 см'}`
+      });
+    }
+  });
+  
+  const heroImages = Array.from(uniqueImages.values());
+  if (heroImages.length === 0) return;
   
   const randomItem = heroImages[Math.floor(Math.random() * heroImages.length)];
   
-  // Попереднє завантаження, щоб уникнути мерехтіння при зміні
+  // Попереднє завантаження, щоб уникнути мерехтіння
   const img = new Image();
   img.onload = () => {
     heroImg.src = randomItem.src;

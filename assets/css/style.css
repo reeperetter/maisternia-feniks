@@ -590,9 +590,16 @@ html[data-theme="dark"] .autocomplete-list { box-shadow: 0 12px 28px #0005; }
 
 /* 3. Збільшені посилання в шапці */
 .site-nav {
-  font-size: 15px !important;
+  font-size: 14px !important;
   font-weight: 500;
-  gap: clamp(18px, 2.5vw, 36px) !important;
+  gap: clamp(12px, 1.8vw, 24px) !important;
+  flex-wrap: nowrap;      /* заборона перенесення */
+  white-space: nowrap;
+}
+.site-nav a {
+  padding: 10px 2px;      /* менші відступи */
+  position: relative;
+  transition: color 0.2s ease;
 }
 .site-nav a {
   padding: 12px 4px;
@@ -642,9 +649,11 @@ html[data-theme="dark"] .autocomplete-list { box-shadow: 0 12px 28px #0005; }
 }
 .hero__painting img {
   width: 100%;
-  aspect-ratio: 4/5;
-  object-fit: cover;
+  height: auto;
+  aspect-ratio: 16/10;
+  object-fit: contain;
   border-radius: 8px;
+  background: rgba(142, 30, 162, 0.04);
 }
 .split-promo__visual img,
 .category-tile img {
@@ -697,4 +706,14 @@ html[data-theme="dark"] .autocomplete-list { box-shadow: 0 12px 28px #0005; }
 .split-promo--custom h2 {
   font-size: clamp(28px, 4vw, 36px);
   color: #8E1EA2;
+}
+@media (max-width: 1100px) {
+  .site-nav {
+    font-size: 13px !important;
+    gap: 10px !important;
+  }
+  .header-link {
+    font-size: 13px !important;
+    padding: 6px 8px;
+  }
 }
